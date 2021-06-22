@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pikachu Face</title>
+	<link rel="stylesheet" href="pikachu.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<div class="face">
+		
+		<div class="blink"></div>
+		
+		<div class="eye right">
+			<div class="shine right"></div>
+		</div>
+		
+		<div class="eye left">
+			<div class="shine left"></div>
+		</div>
+		
+		<div class="blush left"></div>
+		<div class="blush right"></div>
+		<div class="nose"></div>
+		<div class="mouth"></div>
+		
+		<div class="sound">
+			<audio>
+				<source src="https://res.cloudinary.com/sasha-tran/video/upload/v1478227626/Pokemon_Pikachu_Sound_Effect_gis313.mp3">
+			</audio>
+		</div>
+	
+	</div>
+
+	<script>
+		$('.face').mouseover(function () {
+			$('.blink').css('visibility', 'visible');
+			$('.eye.right').css('visibility', 'hidden');
+		});
+		
+		$('.face').mouseout(function () {
+			$('.blink').css('visibility', 'hidden');
+			$('.eye.right').css('visibility', 'visible')
+		});
+		
+		let audio = document.getElementsByTagName('audio')[0];
+		$('.face').mouseover(function () {
+			audio.currentTime = 0.5;
+			audio.play();
+		});
+		
+		$('.face').mouseout(function () {
+			audio.pause();
+			audio.currentTime = 0.5;
+		});
+	</script>
+
+</body>
+</html>
